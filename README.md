@@ -1,8 +1,9 @@
-# Storyblok Rich Text Renderer for React
+# Storyblok Rich Text Renderer for React - TypeScript
 
-[![npm](https://img.shields.io/npm/v/storyblok-rich-text-react-renderer?style=flat-square)](https://www.npmjs.com/package/storyblok-rich-text-react-renderer)
-[![GitHub](https://img.shields.io/github/license/claus/storyblok-rich-text-react-renderer?style=flat-square)](https://github.com/claus/storyblok-rich-text-react-renderer/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/storyblok-rich-text-react-renderer-ts?style=flat-square)](https://www.npmjs.com/package/storyblok-rich-text-react-renderer-ts)
+[![GitHub](https://img.shields.io/github/license/dohomi/storyblok-rich-text-react-renderer-ts?style=flat-square)](https://github.com/claus/storyblok-rich-text-react-renderer/blob/master/LICENSE)
 
+This project is forked from the work of [Claus - react renderer Vanilla JS](https://github.com/claus/storyblok-rich-text-react-renderer).
 
 Renders Storyblok rich text content to React elements.
 

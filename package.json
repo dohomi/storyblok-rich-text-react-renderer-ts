@@ -7,8 +7,8 @@
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "author": {
-    "name": "Claus Wahlers",
-    "email": "claus@codeazur.com.br"
+    "name": "Dominic Garms",
+    "email": "djgarms@gmail.com"
   },
   "files": [
     "dist",
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/claus/storyblok-rich-text-react-renderer.git"
+    "url": "https://github.com/dohomi/storyblok-rich-text-react-renderer-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/claus/storyblok-rich-text-react-renderer/issues"
+    "url": "https://github.com/dohomi/storyblok-rich-text-react-renderer-ts/issues"
   },
   "scripts": {
     "start": "rimraf dist && microbundle watch",
