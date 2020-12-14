@@ -3,7 +3,7 @@ import { BlockResolvers, defaultBlocksResolvers } from './resolver/blocks'
 import { defaultMarkResolvers, MarkResolvers } from './resolver/mark'
 import { MarkNode } from '@marvr/storyblok-rich-text-types'
 
-type RenderOptionsProps = {
+export type RenderOptionsProps = {
   blokResolvers?: {
     [k: string]: (props: any) => ReactNode
   }

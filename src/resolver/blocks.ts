@@ -7,8 +7,18 @@ const simpleNodeResolver = (element: string | FunctionComponent) => (children: R
 const emptyNodeResolver = (element: string | FunctionComponent) => () =>
   React.createElement(element)
 
-export type BlockResolvers = {
-  [key in Block]: ReactNode
+type GenericBlockResolver = {
+  [key in Block]: (children: ReactNode) => ReactNode
+}
+
+export type BlockResolvers =
+  Omit<GenericBlockResolver, 'horizontal_rule' | 'hard_break' | 'heading' | 'code_block' | 'image'>
+  & {
+  [Block.CODE]: (children: ReactNode, attrs: CodeAttributes) => ReactNode
+  [Block.IMAGE]: (children: ReactNode, attrs: ImageAttributes) => ReactNode
+  [Block.HEADING]: (children: ReactNode, attrs: HeadingAttributes) => ReactNode
+  [Block.HR]: () => ReactNode
+  [Block.BR]: () => ReactNode
 }
 
 export const defaultBlocksResolvers: BlockResolvers = {
