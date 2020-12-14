@@ -1,0 +1,49 @@
+{
+  "name": "storyblok-rich-text-react-renderer-ts",
+  "description": "A React renderer for Storyblok rich text content",
+  "version": "3.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "author": {
+    "name": "Claus Wahlers",
+    "email": "claus@codeazur.com.br"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claus/storyblok-rich-text-react-renderer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/claus/storyblok-rich-text-react-renderer/issues"
+  },
+  "scripts": {
+    "start": "rimraf dist && microbundle watch",
+    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "storyblok",
+    "react",
+    "rich text",
+    "resolver",
+    "renderer"
+  ],
+  "peerDependencies": {
+    "react": "^16.0.0 || ^17.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@types/react": "^17.0.0",
+    "microbundle": "^0.12.4",
+    "react": "^17.0.1",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@marvr/storyblok-rich-text-types": "^2.0.1"
+  }
+}
