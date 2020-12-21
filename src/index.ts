@@ -12,7 +12,7 @@ export type RenderOptionsProps = {
   markResolvers?: Partial<MarkResolvers>
 }
 
-export const render = (document: any, options: RenderOptionsProps): ReactNode | null => {
+export const render = (document: any, options?: RenderOptionsProps): ReactNode | null => {
   if (
     typeof document === 'object' &&
     document.type === 'doc' &&
