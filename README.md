@@ -235,7 +235,7 @@ Default node resolvers:
 - 2.1.0 — Allow React 17 as peer
 - 3.0.0 - Initial release of TypeScript version of this renderer
 - 3.0.1 - Improved typings
-- 3.0.2 - render options are optional 
+- 3.0.2 - Bugfix: change render options to optional 
 
 ### Credits
 All credits go to [@claus](https://github.com/claus) who initialized the project in [JavaScript](https://github.com/claus/storyblok-rich-text-react-renderer)
