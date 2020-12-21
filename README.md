@@ -14,7 +14,7 @@ Storyblok provides a renderer for its rich text field type via their
 the `dangerouslySetInnerHTML` property:
 
 ```js
-import StoryblokClient from 'storyblok-js-client';
+import StoryblokClient from 'storyblok-js-client-ts';
 
 const Storyblok = new StoryblokClient({accessToken: 'YOUR_TOKEN'});
 
@@ -36,13 +36,13 @@ Stoyblok rich text element to custom React components.
 ## Installation
 
 ```
-npm install storyblok-rich-text-react-renderer
+npm install storyblok-rich-text-react-renderer-ts
 ```
 
 ## Usage
 
 ```js
-import {render} from 'storyblok-rich-text-react-renderer';
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 function RichText ({document}) {
   // document is the rich text object you receive from Storyblok,
@@ -102,7 +102,7 @@ render(document, {
 
 ```js
 import Link from 'next/link';
-import {render, MARK_LINK} from 'storyblok-rich-text-react-renderer';
+import {render, MARK_LINK} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   markResolvers: {
@@ -148,7 +148,7 @@ Supported element types and their resolver function signatures are:
 
 ```js
 import MyImage from 'components/MyImage';
-import {render, NODE_IMAGE} from 'storyblok-rich-text-react-renderer';
+import {render, NODE_IMAGE} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   nodeResolvers: {
@@ -187,7 +187,7 @@ contains all the component's fields, as well as its `_uid` and `_editable` value
 #### Example:
 
 ```js
-import {render} from 'storyblok-rich-text-react-renderer';
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   defaultBlokResolver: (name, props) => (
