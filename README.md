@@ -14,7 +14,7 @@ Storyblok provides a renderer for its rich text field type via their
 the `dangerouslySetInnerHTML` property:
 
 ```js
-import StoryblokClient from 'storyblok-js-client';
+import StoryblokClient from 'storyblok-js-client-ts';
 
 const Storyblok = new StoryblokClient({accessToken: 'YOUR_TOKEN'});
 
