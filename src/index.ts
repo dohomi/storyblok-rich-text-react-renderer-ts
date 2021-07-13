@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { BlockResolvers, defaultBlocksResolvers } from './resolver/blocks'
 import { defaultMarkResolvers, MarkResolvers } from './resolver/mark'
-import { MarkNode } from '@marvr/storyblok-rich-text-types'
 
 export type RenderOptionsProps = {
   blokResolvers?: {
@@ -10,6 +9,7 @@ export type RenderOptionsProps = {
   defaultBlokResolver?: (name: string, props: any) => ReactNode
   nodeResolvers?: Partial<BlockResolvers>
   markResolvers?: Partial<MarkResolvers>
+  defaultStringResolver?: (str: string) => ReactNode
 }
 
 export const render = (document: any, options?: RenderOptionsProps): ReactNode | null => {
@@ -61,23 +61,29 @@ export const render = (document: any, options?: RenderOptionsProps): ReactNode |
             : defaultBlokResolver(component, props)
           return addKey(element)
         })
-      } else if (node.type === 'text') {
+      } else {
+        let childNode
+        if (node.type === 'text') {
+          childNode = node.text
+        } else {
+          const resolver = nodeResolvers[node.type]
+          childNode = resolver
+            ? addKey(resolver(renderNodes(node.content), node.attrs))
+            : null
+        }
         const marks = node.marks ?? []
-        return marks.reduceRight((children: any, mark: MarkNode) => {
+        return marks.reduceRight((children: any, mark: any) => {
           const resolver = markResolvers[mark.type]
           return resolver
             ? addKey(resolver(children, mark.attrs))
             : children
-        }, node.text)
-      } else {
-        const resolver = nodeResolvers[node.type]
-        return resolver
-          ? addKey(resolver(renderNodes(node.content), node.attrs))
-          : null
+        }, childNode)
       }
     }
 
     return renderNodes(document.content)
+  } else if (typeof document === 'string') {
+    return options?.defaultStringResolver ? options.defaultStringResolver(document) : document
   }
   return null
 }

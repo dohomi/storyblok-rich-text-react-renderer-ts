@@ -30,19 +30,19 @@ because it is not possible to map rich text elements to React components, e.g.:
 1. Embedded Storyblok components
 2. Links that you might want to pass through your app's router
 
-Instead of HTML markup, `storyblok-rich-text-react-renderer` outputs React elements, and provides options to map any
+Instead of HTML markup, `storyblok-rich-text-react-renderer-ts` outputs React elements, and provides options to map any
 Stoyblok rich text element to custom React components.
 
 ## Installation
 
 ```
-npm install storyblok-rich-text-react-renderer
+npm install storyblok-rich-text-react-renderer-ts
 ```
 
 ## Usage
 
 ```js
-import {render} from 'storyblok-rich-text-react-renderer';
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 function RichText ({document}) {
   // document is the rich text object you receive from Storyblok,
@@ -89,7 +89,7 @@ Supported element types and their resolver function signatures are:
 #### Example: Map bold elements to `<strong>`
 
 ```js
-import {render, MARK_BOLD} from 'storyblok-rich-text-react-renderer';
+import {render, MARK_BOLD} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   markResolvers: {
@@ -102,7 +102,7 @@ render(document, {
 
 ```js
 import Link from 'next/link';
-import {render, MARK_LINK} from 'storyblok-rich-text-react-renderer';
+import {render, MARK_LINK} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   markResolvers: {
@@ -148,7 +148,7 @@ Supported element types and their resolver function signatures are:
 
 ```js
 import MyImage from 'components/MyImage';
-import {render, NODE_IMAGE} from 'storyblok-rich-text-react-renderer';
+import {render, NODE_IMAGE} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   nodeResolvers: {
@@ -169,7 +169,7 @@ as its `_uid` and `_editable` values.
 
 ```js
 import MyComponent from 'components/MyComponent';
-import {render} from 'storyblok-rich-text-react-renderer';
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   blokResolvers: {
@@ -187,7 +187,7 @@ contains all the component's fields, as well as its `_uid` and `_editable` value
 #### Example:
 
 ```js
-import {render} from 'storyblok-rich-text-react-renderer';
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   defaultBlokResolver: (name, props) => (
@@ -198,6 +198,20 @@ render(document, {
       </pre>
     </div>
   )
+});
+```
+
+### Default string resolver
+
+Storyblok might return a simple string instead of a document object for rich text fields with trivial content. By default, the render function returns this string as-is. Use the `defaultStringResolver` option to customize this behavior. The function signature is `(str) => { ... }`.
+
+#### Example:
+
+```js
+import { render } from 'storyblok-rich-text-react-renderer-ts';
+
+render(document, {
+    defaultStringResolver: (str) => (<p>{str}</p>)
 });
 ```
 
@@ -236,6 +250,6 @@ Default node resolvers:
 - 3.0.0 - Initial release of TypeScript version of this renderer
 - 3.0.1 - Improved typings
 - 3.0.2 - Bugfix: change render options to optional 
-
+- 3.1.0 - Add defaultStringResolver, Allow block elements as children of inline elements (in particular linked images)
 ### Credits
 All credits go to [@claus](https://github.com/claus) who initialized the project in [JavaScript](https://github.com/claus/storyblok-rich-text-react-renderer)
