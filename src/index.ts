@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { BlockResolvers, defaultBlocksResolvers } from './resolver/blocks'
 import { defaultMarkResolvers, MarkResolvers } from './resolver/mark'
+export { Mark, Block } from '@marvr/storyblok-rich-text-types'
 
 export type RenderOptionsProps = {
   blokResolvers?: {
