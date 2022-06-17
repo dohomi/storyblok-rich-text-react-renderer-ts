@@ -88,12 +88,12 @@ Supported element types and their resolver function signatures are:
 
 #### Example: Map bold elements to `<strong>`
 
-```js
-import {render, MARK_BOLD} from 'storyblok-rich-text-react-renderer-ts';
+```ts
+import { render } from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   markResolvers: {
-    [MARK_BOLD]: (children) => <strong>{children}</strong>
+    bold: (children) => <strong>{children}</strong>
   }
 });
 ```
@@ -102,11 +102,11 @@ render(document, {
 
 ```js
 import Link from 'next/link';
-import {render, MARK_LINK} from 'storyblok-rich-text-react-renderer-ts';
+import { render } from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   markResolvers: {
-    [MARK_LINK]: (children, props) => {
+    link: (children, props) => {
       const {href, target, linktype} = props;
       if (linktype === 'email') {
         // Email links: add `mailto:` scheme and map to <a>
@@ -148,11 +148,11 @@ Supported element types and their resolver function signatures are:
 
 ```js
 import MyImage from 'components/MyImage';
-import {render, NODE_IMAGE} from 'storyblok-rich-text-react-renderer-ts';
+import { render } from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   nodeResolvers: {
-    [NODE_IMAGE]: (children, props) => <MyImage {...props} />
+    image: (children, props) => <MyImage {...props} />
   }
 });
 ```
@@ -169,7 +169,7 @@ as its `_uid` and `_editable` values.
 
 ```js
 import MyComponent from 'components/MyComponent';
-import {render} from 'storyblok-rich-text-react-renderer-ts';
+import { render } from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   blokResolvers: {
@@ -187,7 +187,7 @@ contains all the component's fields, as well as its `_uid` and `_editable` value
 #### Example:
 
 ```js
-import {render} from 'storyblok-rich-text-react-renderer-ts';
+import { render } from 'storyblok-rich-text-react-renderer-ts';
 
 render(document, {
   defaultBlokResolver: (name, props) => (

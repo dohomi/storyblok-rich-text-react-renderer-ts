@@ -7,7 +7,19 @@ export default function Home() {
     <div>
       <h1>This is a test</h1>
       <main>
-        {render(demoContent)}
+        {render(demoContent, {
+          nodeResolvers:{
+            image: (children, attrs) => (
+              <img {...attrs}/>
+            )
+          },
+          markResolvers: {
+            bold: (children) => <strong>{children}</strong>,
+            link: (children, attrs) => {
+              return <a href={attrs.href}>{children}</a>
+            }
+          }
+        })}
       </main>
     </div>
   )
