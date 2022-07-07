@@ -1,31 +1,60 @@
 import React, { ReactNode } from 'react'
-import { BlockResolvers, defaultBlocksResolvers } from './resolver/blocks'
-import { defaultMarkResolvers, MarkResolvers } from './resolver/mark'
+import { defaultBlocksResolvers, StoryblokRichtextContentType } from './resolver/blocks'
+import { defaultMarkResolvers, StoryblokRichtextMark } from './resolver/mark'
+
+type StoryblokRichtextContent = {
+  type: StoryblokRichtextContentType;
+  attrs?: {
+    level?: number;
+    class?: string;
+    src?: string;
+    alt?: string;
+    title?: string;
+    order?: number;
+    body?: Array<{
+      _uid: string;
+    }>;
+  };
+  marks?: {
+    type: StoryblokRichtextMark;
+    attrs?: {
+      linktype?: string;
+      href?: string;
+      target?: string;
+      anchor?: string;
+      uuid?: string;
+      class?: string;
+    };
+  }[];
+  text?: string;
+  content: StoryblokRichtextContent[];
+};
+
+export type StoryblokRichtext = {
+  type: 'doc';
+  content: StoryblokRichtextContent[];
+};
+
 export { Mark, Block } from '@marvr/storyblok-rich-text-types'
 
 export type RenderOptionsProps = {
   blokResolvers?: {
-    [k: string]: (props: any) => ReactNode
+    [k: string]: (props: any) => JSX.Element | null
   }
-  defaultBlokResolver?: (name: string, props: any) => ReactNode
-  nodeResolvers?: Partial<BlockResolvers>
-  markResolvers?: Partial<MarkResolvers>
-  defaultStringResolver?: (str: string) => ReactNode
+  defaultBlokResolver?: (name: string, props: any) => JSX.Element | null
+  nodeResolvers?: Partial<typeof defaultBlocksResolvers>
+  markResolvers?: Partial<typeof defaultMarkResolvers>
+  defaultStringResolver?: (str: string) => JSX.Element
 }
 
-export const render = (document: any, options?: RenderOptionsProps): ReactNode | null => {
-  if (
-    typeof document === 'object' &&
-    document.type === 'doc' &&
-    Array.isArray(document.content)
-  ) {
+export const render = (document: StoryblokRichtext | any, options?: RenderOptionsProps): ReactNode | null => {
+  if (document?.type === 'doc' && Array.isArray(document?.content)) {
     const {
       blokResolvers = {},
       defaultBlokResolver = () => null,
       nodeResolvers: customNodeResolvers = {},
       markResolvers: customMarkResolvers = {}
     } = options ?? {}
-
     const nodeResolvers: any = {
       ...defaultBlocksResolvers,
       ...customNodeResolvers

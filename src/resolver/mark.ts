@@ -1,34 +1,30 @@
-import { LinkAttributes, StyledAttributes } from '@marvr/storyblok-rich-text-types'
-import React, { FunctionComponent, ReactNode } from 'react'
+import { LinkAttributes as LA, StyledAttributes } from '@marvr/storyblok-rich-text-types'
+import { ReactNode, createElement, FC } from 'react'
 
-
-const simpleMarkResolver = (element: string | FunctionComponent) => (children: React.ReactNode) =>
-  React.createElement(element, null, children)
-
-type MarkType = 'bold' |
-  'strong' |
-  'strike' |
-  'underline' |
-  'italic' |
-  'code'
-
-type GenericMarkResolver = {
-  [key in MarkType]: (children: ReactNode) => ReactNode
+type LinkAttributes = LA & {
+  anchor?: string
 }
 
-export type MarkResolvers = GenericMarkResolver & {
-  link: (children: ReactNode, attrs: LinkAttributes) => ReactNode
-  styled: (children: ReactNode, attrs: StyledAttributes) => ReactNode
-};
+export type StoryblokRichtextMark =
+  | "bold"
+  | "italic"
+  | "strike"
+  | "underline"
+  | "code"
+  | "link"
+  | "styled";
 
-export const defaultMarkResolvers: MarkResolvers = {
-  link: (children: ReactNode, { href, target, linktype }: LinkAttributes) =>
-    React.createElement('a', {
+const simpleMarkResolver = (element: string | FC) => (children: ReactNode): JSX.Element | null =>
+  createElement(element, null, children)
+
+export const defaultMarkResolvers = {
+  link: (children: ReactNode, { href, linktype, target }: LinkAttributes): JSX.Element | null =>
+    createElement('a', {
       href: linktype === 'email' ? `mailto:${href}` : href,
       target
     }, children),
-  styled: (children: React.ReactNode, attrs: StyledAttributes) =>
-    React.createElement('span', { className: attrs.class }, children),
+  styled: (children: ReactNode, attrs: StyledAttributes): JSX.Element | null =>
+    createElement('span', { className: attrs.class }, children),
   bold: simpleMarkResolver('b'),
   strong: simpleMarkResolver('strong'),
   italic: simpleMarkResolver('i'),

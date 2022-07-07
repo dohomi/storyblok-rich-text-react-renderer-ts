@@ -8,15 +8,20 @@ export default function Home() {
       <h1>This is a test</h1>
       <main>
         {render(demoContent, {
-          nodeResolvers:{
+          nodeResolvers: {
             image: (children, attrs) => (
-              <img {...attrs}/>
+              <img {...attrs} />
             )
           },
           markResolvers: {
-            bold: (children) => <strong>{children}</strong>,
-            link: (children, attrs) => {
-              return <a href={attrs.href}>{children}</a>
+            bold: (children) => (
+              <strong>{children}</strong>
+            ),
+            italic: children => (
+              <i>{children}</i>
+            ),
+            link: (children, { target, href }) => {
+              return <a href={href} target={target}>{children}</a>
             }
           }
         })}

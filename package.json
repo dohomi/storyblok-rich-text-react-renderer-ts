@@ -1,7 +1,7 @@
 {
   "name": "storyblok-rich-text-react-renderer-ts",
   "description": "A React renderer for Storyblok rich text content",
-  "version": "3.1.3",
+  "version": "3.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -24,7 +24,8 @@
   "scripts": {
     "start": "rimraf dist && microbundle watch",
     "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "check-types": "tsc --noEmit"
   },
   "keywords": [
     "storyblok",
@@ -34,14 +35,14 @@
     "renderer"
   ],
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@types/react": "^17.0.14",
-    "microbundle": "^0.13.3",
-    "react": "^17.0.2",
-    "typescript": "^4.3.5"
+    "@types/react": "^18.0.15",
+    "microbundle": "^0.15.0",
+    "react": "^18.2.0",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "@marvr/storyblok-rich-text-types": "^2.0.1"

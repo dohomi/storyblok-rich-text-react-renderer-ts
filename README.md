@@ -252,6 +252,7 @@ Default node resolvers:
 - 3.0.2 - Bugfix: change render options to optional 
 - 3.1.0 - Add defaultStringResolver, Allow block elements as children of inline elements (in particular linked images)
 - 3.1.1 - Fixed build script and update dependencies
+- 3.2.0 - Add React 18 support. Improve typings. Add anchor to link attributes.
 
 ### Credits
 All credits go to [@claus](https://github.com/claus) who initialized the project in [JavaScript](https://github.com/claus/storyblok-rich-text-react-renderer)
