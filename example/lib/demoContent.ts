@@ -1,181 +1,199 @@
 export const demoContent = {
-  'type': 'doc',
-  'content': [
+  type: "doc",
+  content: [
     {
-      'type': 'heading',
-      'attrs': {
-        'level': 1
+      type: "heading",
+      attrs: {
+        level: 1,
       },
-      'content': [
+      content: [
         {
-          'text': 'Headline',
-          'type': 'text'
-        }
-      ]
+          text: "Headline",
+          type: "text",
+        },
+      ],
     },
     {
-      'type': 'paragraph',
-      'content': [
+      type: "paragraph",
+      content: [
         {
-          'text': 'This is some Rich Text Editor',
-          'type': 'text'
+          text: "This is some Rich Text Editor",
+          type: "text",
         },
         {
-          'type': 'hard_break'
+          type: "hard_break",
         },
         {
-          'text': 'You ',
-          'type': 'text'
+          text: "You ",
+          type: "text",
         },
         {
-          'text': 'can',
-          'type': 'text',
-          'marks': [
+          text: "can",
+          type: "text",
+          marks: [
             {
-              'type': 'italic'
-            }
-          ]
+              type: "italic",
+            },
+          ],
         },
         {
-          'text': ' ',
-          'type': 'text'
+          text: " ",
+          type: "text",
         },
         {
-          'text': 'try',
-          'type': 'text',
-          'marks': [
+          text: "try",
+          type: "text",
+          marks: [
             {
-              'type': 'underline'
-            }
-          ]
+              type: "underline",
+            },
+          ],
         },
         {
-          'text': ' ',
-          'type': 'text'
+          text: " ",
+          type: "text",
         },
         {
-          'text': 'some',
-          'type': 'text',
-          'marks': [
+          text: "different",
+          type: "text",
+          marks: [
             {
-              'type': 'bold'
-            }
-          ]
+              type: "subscript",
+            },
+          ],
         },
         {
-          'text': ' ',
-          'type': 'text'
-        },
-        {
-          'text': 'styling',
-          'type': 'text',
-          'marks': [
+          text: "markups",
+          type: "text",
+          marks: [
             {
-              'type': 'strike'
-            }
-          ]
-        }
-      ]
+              type: "superscript",
+            },
+          ],
+        },
+        {
+          text: "some",
+          type: "text",
+          marks: [
+            {
+              type: "bold",
+            },
+          ],
+        },
+        {
+          text: " ",
+          type: "text",
+        },
+        {
+          text: "styling",
+          type: "text",
+          marks: [
+            {
+              type: "strike",
+            },
+          ],
+        },
+      ],
     },
     {
-      'type': 'bullet_list',
-      'content': [
+      type: "bullet_list",
+      content: [
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'one',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
+                  text: "one",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         },
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'two',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
+                  text: "two",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         },
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'three',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                  text: "three",
+                  type: "text",
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
-      'type': 'ordered_list',
-      'attrs': {
-        'order': 1
+      type: "ordered_list",
+      attrs: {
+        order: 1,
       },
-      'content': [
+      content: [
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'one',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
+                  text: "one",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         },
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'two',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
+                  text: "two",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         },
         {
-          'type': 'list_item',
-          'content': [
+          type: "list_item",
+          content: [
             {
-              'type': 'paragraph',
-              'content': [
+              type: "paragraph",
+              content: [
                 {
-                  'text': 'three',
-                  'type': 'text'
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                  text: "three",
+                  type: "text",
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
-      'type': 'paragraph'
-    }
-  ]
-}
+      type: "paragraph",
+    },
+  ],
+};
