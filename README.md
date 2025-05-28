@@ -1,3 +1,14 @@
+# Pricing increase warning
+
+Storyblok has introduced a significant change to its pricing: 
+
+2,001 to 2,500 assets: $99/month
+
+2,501+ assets: $349/month
+
+In light of these changes, I recommend considering alternative headless CMS platforms that offer more transparent and flexible asset policies. After many years I will discontinue my involvement contributing into the echo system of Storyblok.
+
+
 # Storyblok Rich Text Renderer for React - TypeScript
 
 [![npm](https://img.shields.io/npm/v/storyblok-rich-text-react-renderer-ts?style=flat-square)](https://www.npmjs.com/package/storyblok-rich-text-react-renderer-ts)
